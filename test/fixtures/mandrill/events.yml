@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ts: 1
+  event_name: MyString
+  url: MyString
+  ip: MyString
+  user_agent: MyString
+  internal_id: MyString
+  msg: 
+  user_agent_parsed: 
+  location: 
+
+two:
+  ts: 1
+  event_name: MyString
+  url: MyString
+  ip: MyString
+  user_agent: MyString
+  internal_id: MyString
+  msg: 
+  user_agent_parsed: 
+  location: 
