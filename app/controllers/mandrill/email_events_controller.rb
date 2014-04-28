@@ -5,15 +5,12 @@ module Mandrill
     def handle_open(event_payload)
             
       email_event = event_payload.as_record
-      
+      email_event.save!
       
     end
 
     def handle_click(event_payload)
-      EmailEvent.delete_all
       email_event = event_payload.as_record
-      ::Rails.logger.ap event_payload
-      ::Rails.logger.ap email_event.msg.clicks.first
       email_event.save!
     end
   end
