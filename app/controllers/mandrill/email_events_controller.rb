@@ -3,7 +3,7 @@ module Mandrill
     include Mandrill::Rails::WebHookProcessor
     
     def handle_open(event_payload)
-            
+      #::Rails.logger.ap  event_payload      
       email_event = event_payload.as_record
       email_event.save!
       
@@ -11,6 +11,7 @@ module Mandrill
 
     def handle_click(event_payload)
       email_event = event_payload.as_record
+      
       email_event.save!
     end
   end

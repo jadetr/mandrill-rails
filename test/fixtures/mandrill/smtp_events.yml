@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ts: 1
+  ts_dt: 2014-04-28 16:22:35
+  type: 
+  diag: MyString
+  source_ip: MyString
+  destination_ip: MyString
+  size: 1
+  msg: 
+
+two:
+  ts: 1
+  ts_dt: 2014-04-28 16:22:35
+  type: 
+  diag: MyString
+  source_ip: MyString
+  destination_ip: MyString
+  size: 1
+  msg: 
