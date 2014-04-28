@@ -1,3 +1,5 @@
+$:.push File.expand_path("../lib", __FILE__)
+
 # -*- encoding: utf-8 -*-
 require File.expand_path('../lib/mandrill-rails/version', __FILE__)
 

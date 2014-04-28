@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  city: MyString
+  country: MyString
+  country_short: MyString
+  latitude: MyString
+  longitude: MyString
+  postal_code: MyString
+  region: MyString
+  timezone: MyString
+
+two:
+  city: MyString
+  country: MyString
+  country_short: MyString
+  latitude: MyString
+  longitude: MyString
+  postal_code: MyString
+  region: MyString
+  timezone: MyString

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  internal_id: MyString
+  internal_version: MyString
+  email: MyString
+  metadata: MyText
+  sender: MyString
+  state: MyString
+  subject: MyString
+  tags: MyText
+  ts: 1
+
+two:
+  internal_id: MyString
+  internal_version: MyString
+  email: MyString
+  metadata: MyText
+  sender: MyString
+  state: MyString
+  subject: MyString
+  tags: MyText
+  ts: 1

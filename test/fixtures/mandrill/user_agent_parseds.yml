@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  mobile: false
+  os_company: MyString
+  os_company_url: MyString
+  os_family: MyString
+  os_icon: MyString
+  os_name: MyString
+  os_url: MyString
+  type: 
+  ua_company: MyString
+  ua_company_url: MyString
+  ua_family: MyString
+  ua_icon: MyString
+  ua_name: MyString
+  ua_url: MyString
+  ua_version: MyString
+
+two:
+  mobile: false
+  os_company: MyString
+  os_company_url: MyString
+  os_family: MyString
+  os_icon: MyString
+  os_name: MyString
+  os_url: MyString
+  type: 
+  ua_company: MyString
+  ua_company_url: MyString
+  ua_family: MyString
+  ua_icon: MyString
+  ua_name: MyString
+  ua_url: MyString
+  ua_version: MyString

@@ -9,6 +9,24 @@
 #   end
 #
 class Mandrill::WebHook::EventDecorator < Hash
+  
+  def as_record
+    event_payload = self
+    attributes_data = event_payload.to_hash
+    attributes_data["internal_id"] = attributes_data.delete("_id")
+    attributes_data["msg"]["internal_id"] = attributes_data["msg"].delete("_id")
+    attributes_data["msg"]["internal_version"] = attributes_data["msg"].delete("_version")
+    attributes_data["msg"]["opens_attributes"] = attributes_data["msg"].delete("opens")
+    attributes_data["msg"]["clicks_attributes"] = attributes_data["msg"].delete("clicks")
+    attributes_data["msg"]["metadata"] = attributes_data["msg"]["metadata"].to_json
+    attributes_data["msg"]["tags"] = attributes_data["msg"]["tags"].to_json
+    attributes_data["msg_attributes"] = attributes_data.delete("msg")
+    attributes_data["location_attributes"] = attributes_data.delete("location")
+    attributes_data["user_agent_parsed_attributes"] = attributes_data.delete("user_agent_parsed")
+      
+    event_email = Mandrill::EmailEvent.new(attributes_data)
+    event_email
+  end
 
   # Returns the event type.
   # Applicable events: all
