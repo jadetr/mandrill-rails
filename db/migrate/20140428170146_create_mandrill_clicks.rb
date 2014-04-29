@@ -4,6 +4,10 @@ class CreateMandrillClicks < ActiveRecord::Migration
       t.integer :ts
       t.datetime :ts_dt
       t.string :url
+      t.string :ip
+      t.string :location
+      t.string :ua
+
       t.references :msg
 
       t.timestamps

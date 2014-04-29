@@ -3,7 +3,7 @@ require 'date'
 module Mandrill
   class Click < ActiveRecord::Base
     belongs_to :msg
-    attr_accessible :ts, :url
+    attr_accessible :ts, :url, :ip, :location, :ua
     
     def ts=(value)
       write_attribute(:ts, value)
