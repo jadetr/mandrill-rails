@@ -16,8 +16,8 @@ class Mandrill::WebHook::EventDecorator < Hash
     attributes_data["internal_id"] = attributes_data.delete("_id")
     attributes_data["msg"]["internal_id"] = attributes_data["msg"].delete("_id")
     attributes_data["msg"]["internal_version"] = attributes_data["msg"].delete("_version")
-    attributes_data["msg"]["opens_attributes"] = attributes_data["msg"].delete("opens") if attributes_data["msg"]["opens"].present? 
-    attributes_data["msg"]["clicks_attributes"] = attributes_data["msg"].delete("clicks") if attributes_data["msg"]["clicks"].present? 
+    attributes_data["msg"]["opens_attributes"] = attributes_data["msg"].delete("opens")
+    attributes_data["msg"]["clicks_attributes"] = attributes_data["msg"].delete("clicks")
     attributes_data["msg"]["smtp_events_attributes"] = attributes_data["msg"].delete("smtp_events") if attributes_data["msg"]["smtp_events"].present? 
     attributes_data["msg"]["metadata"] = attributes_data["msg"]["metadata"].to_json 
     attributes_data["msg"]["resends"] = attributes_data["msg"]["resends"].to_json if attributes_data["msg"]["resends"].present? 
