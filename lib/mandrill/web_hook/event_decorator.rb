@@ -13,19 +13,56 @@ class Mandrill::WebHook::EventDecorator < Hash
   def as_record
     event_payload = self
     attributes_data = event_payload.to_hash
-    attributes_data["internal_id"] = attributes_data.delete("_id")
-    attributes_data["msg"]["internal_id"] = attributes_data["msg"].delete("_id")
-    attributes_data["msg"]["internal_version"] = attributes_data["msg"].delete("_version")
-    attributes_data["msg"]["opens_attributes"] = attributes_data["msg"].delete("opens")
-    attributes_data["msg"]["clicks_attributes"] = attributes_data["msg"].delete("clicks")
-    attributes_data["msg"]["smtp_events_attributes"] = attributes_data["msg"].delete("smtp_events") if not attributes_data["msg"]["smtp_events"].nil? 
-    attributes_data["msg"]["metadata"] = attributes_data["msg"]["metadata"].to_json 
-    attributes_data["msg"]["resends"] = attributes_data["msg"]["resends"].to_json if not attributes_data["msg"]["resends"].nil?  
-    attributes_data["msg"]["tags"] = attributes_data["msg"]["tags"].to_json
+    #::Rails.logger.ap event_payload.to_hash
+    
+    if !attributes_data["_id"].nil?
+      attributes_data["internal_id"] = attributes_data.delete("_id")  
+    end
+    
+    if !attributes_data["msg"]["_id"].nil?
+      attributes_data["msg"]["internal_id"] = attributes_data["msg"].delete("_id")  
+    end
+    
+    if !attributes_data["msg"]["_version"].nil?
+      attributes_data["msg"]["internal_version"] = attributes_data["msg"].delete("_version")  
+    end
+    
+    if !attributes_data["msg"]["opens"].nil?
+      attributes_data["msg"]["opens_attributes"] = attributes_data["msg"].delete("opens")  
+    end
+    
+    if !attributes_data["msg"]["clicks"].nil?
+      attributes_data["msg"]["clicks_attributes"] = attributes_data["msg"].delete("clicks")  
+    end
+    
+    if !attributes_data["msg"]["smtp_events"].nil?
+      attributes_data["msg"]["smtp_events_attributes"] = attributes_data["msg"].delete("smtp_events")  
+    end
+    
+    if !attributes_data["msg"]["metadata"].nil?
+      attributes_data["msg"]["metadata"] = attributes_data["msg"].delete("metadata").to_json 
+    end
+    
+    if !attributes_data["msg"]["resends"].nil?
+      attributes_data["msg"]["resends"] = attributes_data["msg"].delete("resends").to_json 
+    end
+    
+    if !attributes_data["msg"]["tags"].nil?
+      attributes_data["msg"]["tags"] = attributes_data["msg"].delete("tags").to_json 
+    end
+    
     attributes_data["msg_attributes"] = attributes_data.delete("msg")
-    attributes_data["location_attributes"] = attributes_data.delete("location") || {}
-    attributes_data["user_agent_parsed_attributes"] = attributes_data.delete("user_agent_parsed") || {}
+    
+    if !attributes_data["location"].nil?
+      attributes_data["location_attributes"] = attributes_data.delete("location")  || {}
+    end
+    
+    if !attributes_data["user_agent_parsed"].nil?
+      attributes_data["user_agent_parsed_attributes"] = attributes_data.delete("user_agent_parsed") || {}  
+    end
+    
     #::Rails.logger.ap attributes_data 
+    
     event_email = Mandrill::EmailEvent.new(attributes_data)
     event_email
   end

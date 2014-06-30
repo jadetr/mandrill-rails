@@ -2,7 +2,7 @@ require 'date'
 
 module Mandrill
   class Msg < ActiveRecord::Base
-    attr_accessible :email, :internal_id, :internal_version, :metadata, :resends, :template, :sender, :state, :subject, :tags, :ts, :clicks_attributes, :opens_attributes, :smtp_events_attributes
+    attr_accessible :email, :internal_id, :internal_version, :metadata, :resends, :subaccount, :reject, :template, :sender, :state, :subject, :tags, :ts, :clicks_attributes, :opens_attributes, :smtp_events_attributes
     
     belongs_to :email_event
     
